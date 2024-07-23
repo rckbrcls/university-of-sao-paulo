@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(){
+	
+    int a;
+	float b;
+	float c;
+	char d;
+	double f;
+	
+	scanf("%d", &a);
+	scanf("%f", &b);
+	scanf("%f", &c);
+	scanf(" %c", &d);
+	
+	f=b/(c*c);
+	
+	printf("A pessoa com sexo %c tem %d anos\nCom o peso de %f quilos e altura de %f metros tem o IMC de %lf",d,a,b,c,f);
+	
+	return 0;
+}

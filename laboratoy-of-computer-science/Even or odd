@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main(void){
+   
+   long long int n1;
+   long long int n2;
+   long long int m;
+   
+   scanf("%lld", &n1);
+   scanf("%lld", &n2);
+
+   if(n1% 2== 0){
+      printf("O primeiro número é par\n");
+   }
+   else{
+      printf("O primeiro número é ímpar\n");
+   }
+   if(n2% 2== 0){
+      printf("O segundo número é par\n");
+   }
+   else{
+      printf("O segundo número é ímpar\n");
+   }
+   
+   if((n1+n2)% 2== 0){
+      (m=n1*n2);
+      if(m% 2== 0){
+      printf("O resultado é %lld, que é par\n", m); 
+      }
+      else{
+          (m=n1*n2);
+          printf("O resultado é %lld, que é ímpar\n", m);
+      }
+   } 
+   else{
+      (m=n1+n2);
+      printf("O resultado é %lld, que é ímpar\n", m);
+      
+   }
+}

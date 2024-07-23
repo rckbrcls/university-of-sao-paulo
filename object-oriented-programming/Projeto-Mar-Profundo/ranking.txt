@@ -1,0 +1,9 @@
+drcaddsaad,900
+drcadd,800
+ble,700
+drcaddsaa,260
+drca,250
+drcadds,210
+ha,200
+drcad,190
+drcaddsa,10

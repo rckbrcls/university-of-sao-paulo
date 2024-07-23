@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(){
+	
+	float a;
+	
+	scanf("%f", &a);
+
+	printf("R$ %f é aproximadamente US$ %f", a, a/3.84);
+	
+	return 0;
+}

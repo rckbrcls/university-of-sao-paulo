@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+  min-height: 100vh;
+  background: #fdfdfd;
+}
+
+.container form {
+  padding: 8px;
+  background: #4621ad;
+  border-radius: 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container form .row {
+  display: flex;
+}
+
+.container form .row .col {
+  flex: 1 1 250px;
+  border-radius: 15px;
+  background-color: #fdfdfd;
+  margin: 15px;
+}
+
+.container form .row .col .title {
+  font-size: 20px;
+  color: #333;
+  padding-bottom: 5px;
+  margin: 10px;
+  text-transform: uppercase;
+}
+
+.resume {
+  background: #4621ad;
+  width: 80%;
+  border-radius: 30px;
+  margin: auto;
+  display: flex;
+  padding: 25px;
+}
+
+.conteudo {
+  background-color: #fdfdfd;
+  border-radius: 15px;
+  width: 100%;
+  border-radius: 30px;
+  margin: auto;
+}

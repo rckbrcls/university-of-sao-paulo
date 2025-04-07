@@ -6,11 +6,31 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/* 
+  ================================================================================
+  IDENTIFICAÇÃO DE SELETORES CSS E CONCEITOS DE CASCATA, ESPECIFICIDADE E HERANÇA
+  ================================================================================
+  - Este arquivo contém exemplos de:
+    1. Seletor de tipo (element): body, a, h1, etc.
+    2. Seletor de classe (class): .header, .footer, .services, etc.
+    3. Seletor de ID (id): #preloader, #scroll-top
+    4. Seletor descendente (elemento1 elemento2), por exemplo: .php-email-form .error-message
+    5. Pseudo-classes (:hover, :focus, :before, :after etc.)
+    6. Seletor de atributo ([type="text"], [type="email"], etc.)
+
+  - Conceitos de Cascata, Especificidade e Herança:
+    * Cascata (Cascade): É a forma como o navegador decide qual regra CSS aplicar quando há regras conflitantes. Ele leva em conta a origem do estilo (externo, interno, inline), importância (!important), especificidade e ordem em que aparecem.
+    * Especificidade (Specificity): É a "força" do seletor. Quanto mais específico o seletor, maior prioridade ele tem. Em ordem crescente: Seletor de tipo < Classe < ID < Inline styles < !important.
+    * Herança (Inheritance): Alguns valores de CSS (como 'font-family', 'color') são herdados pelos elementos filhos se estes não tiverem regras mais específicas aplicadas.
+*/
+
 /*--------------------------------------------------------------
 # Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
-/* Fonts */
+/* 
+  Pseudo-classe :root seleciona o elemento raiz do documento (html).
+  Variáveis CSS definidas aqui são herdadas por todo o documento (conceito de herança e cascata).
+*/
 :root {
   --default-font: "Inconsolata", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
@@ -19,28 +39,36 @@
   --nav-font: "Inconsolata", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/* 
+  Variáveis de cores globais (color variables):
+  - Definidas em :root, portanto, valores podem ser usados por toda a folha de estilo.
+*/
 :root {
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #000000; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #000000; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #ffffff;
+  --default-color: #212529;
+  --heading-color: #000000;
+  --accent-color: #000000;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/*
+  Variáveis de cores específicas para o menu de navegação.
+  Separadas das globais para permitir customização isolada.
+*/
 :root {
-  --nav-color: #5b5b5b; /* The default color of the main navmenu links */
-  --nav-hover-color: #000000; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #f5f5f5; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #5b5b5b; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #000000; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #5b5b5b;
+  --nav-hover-color: #000000;
+  --nav-mobile-background-color: #f5f5f5;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #5b5b5b;
+  --nav-dropdown-hover-color: #000000;
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
+/*
+  Exemplos de classes .light-background e .dark-background, que sobrescrevem algumas das variáveis definidas no :root.
+  Demonstração de como a cascata lida com variáveis. Quando adicionadas a um elemento, estas variáveis passam a valer dentro desse escopo.
+*/
 .light-background {
   --background-color: #f9f9f9;
   --surface-color: #ffffff;
@@ -54,7 +82,10 @@
   --contrast-color: #ffffff;
 }
 
-/* Smooth scroll */
+/* 
+  Pseudo-classe :root novamente para scroll-behavior. 
+  Lembrando que isto afeta todo o documento, pois :root é o nível mais alto.
+*/
 :root {
   scroll-behavior: smooth;
 }
@@ -62,23 +93,43 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+
+/* 
+  Seletor de tipo: body
+  - Aplica a todos os elementos <body>. 
+  - color e background-color são propriedades herdáveis para elementos filhos se estes não tiverem regras mais específicas.
+*/
 body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
 }
 
+/* 
+  Seletor de tipo: a
+  - Aplica a todos os links (elemento <a>).
+  - text-decoration, transition: herança não se aplica, mas a cascata e especificidade determinam que esta regra se aplique a todos os links.
+*/
 a {
   color: var(--accent-color);
   text-decoration: none;
   transition: 0.3s;
 }
 
+/* 
+  Pseudo-classe :hover
+  - Aplica quando o usuário passa o mouse sobre o link.
+*/
 a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;
 }
 
+/* 
+  Seletor de tipo múltiplo: h1, h2, h3, h4, h5, h6
+  - Define cor e fonte para todos esses elementos. 
+  - Exemplo de como a herança pode ocorrer (font-family pode ser herdado), mas aqui definimos explicitamente.
+*/
 h1,
 h2,
 h3,
@@ -89,8 +140,13 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
+/*--------------------------------------------------------------
+# PHP Email Form Messages
+--------------------------------------------------------------*/
+/* 
+  Seletor de classe composto: .php-email-form .error-message
+  - Maior especificidade que apenas .error-message, pois exige que esteja dentro de .php-email-form.
+*/
 .php-email-form .error-message {
   display: none;
   background: #df1529;
@@ -119,6 +175,11 @@ h6 {
   margin-bottom: 24px;
 }
 
+/* 
+  Pseudo-elemento :before
+  - Cria um elemento fictício antes do conteúdo real. 
+  - Usado aqui para um spinner de loading animado.
+*/
 .php-email-form .loading:before {
   content: "";
   display: inline-block;
@@ -131,6 +192,10 @@ h6 {
   animation: php-email-form-loading 1s linear infinite;
 }
 
+/* 
+  @keyframes php-email-form-loading 
+  - Animação para girar o spinner.
+*/
 @keyframes php-email-form-loading {
   0% {
     transform: rotate(0deg);
@@ -144,6 +209,10 @@ h6 {
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
+/* 
+  Seletor de classe: .header
+  - Aplica estilo ao cabeçalho global.
+*/
 .header {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -156,6 +225,10 @@ h6 {
   line-height: 1;
 }
 
+/*
+  Seletor de classe com elemento: .header .logo img
+  - Especificidade maior que apenas .header img. 
+*/
 .header .logo img {
   max-height: 32px;
   margin-right: 8px;
@@ -171,7 +244,10 @@ h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/* Navmenu */
+/*
+  .mobile-nav-toggle 
+  - Classe aplicada ao ícone que abre/fecha o menu no mobile.
+*/
 .mobile-nav-toggle {
   color: var(--nav-color);
   position: fixed;
@@ -185,10 +261,17 @@ h6 {
   transition: 0.3s;
 }
 
+/*
+  Pseudo-classe :hover aplicada em um seletor de classe
+*/
 .mobile-nav-toggle:hover {
   color: var(--nav-hover-color);
 }
 
+/*
+  .navmenu 
+  - Classe que define o menu de navegação "off-canvas" 
+*/
 .navmenu {
   position: fixed;
   top: 0;
@@ -210,6 +293,10 @@ h6 {
   z-index: 998;
 }
 
+/*
+  Seletor descendente: .navmenu a 
+  - Aplica a todos <a> dentro de .navmenu.
+*/
 .navmenu a,
 .navmenu a:focus {
   color: var(--nav-dropdown-color);
@@ -224,6 +311,11 @@ h6 {
   transition: 0.3s;
 }
 
+/*
+  .navmenu a i 
+  - Ícone dentro de <a> do menu. 
+  - background-color utiliza color-mix para gerar cor semitransparente.
+*/
 .navmenu a i,
 .navmenu a:focus i {
   font-size: 12px;
@@ -251,13 +343,11 @@ h6 {
   color: var(--nav-dropdown-hover-color);
 }
 
-.navmenu .active i,
-.navmenu .active:focus i {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  transform: rotate(180deg);
-}
-
+/*
+  .dropdown ul 
+  - Submenu que só aparece ao hover/ação (JavaScript). 
+  - display: none até ativado.
+*/
 .navmenu .dropdown ul {
   position: static;
   display: none;
@@ -275,6 +365,10 @@ h6 {
     color-mix(in srgb, var(--nav-dropdown-color), transparent 90%);
 }
 
+/*
+  Classe combinada: .mobile-nav-active .mobile-nav-toggle
+  - Especificidade maior. Essa regra só vale se ambos estiverem presentes.
+*/
 .mobile-nav-active {
   overflow: hidden;
 }
@@ -286,6 +380,10 @@ h6 {
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
+/*
+  .mobile-nav-active .navmenu 
+  - Mostra o menu fixo na tela, mudando de right: -300px para right: 0.
+*/
 .mobile-nav-active .navmenu {
   position: fixed;
   overflow: hidden;
@@ -315,6 +413,10 @@ h6 {
   margin-top: 20px;
 }
 
+/*
+  .footer .social-links a 
+  - Botões para redes sociais. 
+*/
 .footer .social-links a {
   display: flex;
   align-items: center;
@@ -343,6 +445,10 @@ h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
+/*
+  Seletor de ID: #preloader
+  - IDs têm alta especificidade comparada a classes e elementos.
+*/
 #preloader {
   position: fixed;
   inset: 0;
@@ -365,6 +471,9 @@ h6 {
   animation: animate-preloader 1s linear infinite;
 }
 
+/*
+  Animação de rotacionar o spinner do preloader.
+*/
 @keyframes animate-preloader {
   0% {
     transform: rotate(0deg);
@@ -378,6 +487,10 @@ h6 {
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
+/*
+  Outro seletor de ID: #scroll-top 
+  - Botão fixo para rolar a página para o topo.
+*/
 .scroll-top {
   position: fixed;
   visibility: hidden;
@@ -403,6 +516,9 @@ h6 {
   color: var(--contrast-color);
 }
 
+/*
+  Classe .active em .scroll-top, mostrando o botão quando ativo.
+*/
 .scroll-top.active {
   visibility: visible;
   opacity: 1;
@@ -412,6 +528,10 @@ h6 {
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
+/*
+  Seletor de mídia @media screen and (max-width: 768px)
+  - Aplica estilos condicionais para telas menores.
+*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
@@ -421,6 +541,10 @@ h6 {
 /*--------------------------------------------------------------
 # Global Page Titles & Breadcrumbs
 --------------------------------------------------------------*/
+/*
+  Seletor de classe: .page-title
+  - Define estilo geral para títulos de páginas.
+*/
 .page-title {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -446,6 +570,10 @@ h6 {
   font-weight: 400;
 }
 
+/*
+  .page-title .breadcrumbs ol li + li 
+  - Seleciona <li> que vem imediatamente depois de outro <li>.
+*/
 .page-title .breadcrumbs ol li + li {
   padding-left: 10px;
 }
@@ -460,6 +588,11 @@ h6 {
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
+/*
+  Seletores de tipo section e .section
+  - Aplica padding e outras propriedades em seções.
+  - Exemplo de como classes e tipos podem coexistir.
+*/
 section,
 .section {
   color: var(--default-color);
@@ -479,6 +612,10 @@ section,
 /*--------------------------------------------------------------
 # Global Section Titles
 --------------------------------------------------------------*/
+/*
+  .section-title 
+  - Classe utilizada geralmente em títulos de seções.
+*/
 .section-title {
   text-align: center;
   padding-bottom: 60px;
@@ -498,6 +635,10 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
+/*
+  .portfolio .portfolio-info h3
+  - Seletor descendente dentro de classe .portfolio
+*/
 .portfolio .portfolio-info h3 {
   font-size: 24px;
   margin-bottom: 5px;
@@ -555,6 +696,10 @@ section,
   transition: 0.3s;
 }
 
+/*
+  .portfolio .portfolio-content .portfolio-info
+  - Seletor descendente de três níveis: .portfolio-content dentro de .portfolio e .portfolio-info dentro dele.
+*/
 .portfolio .portfolio-content .portfolio-info {
   opacity: 0;
   position: absolute;
@@ -615,6 +760,10 @@ section,
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
+/*
+  .clients .swiper-slide img 
+  - Exemplo de seletor descendente composto, com classes e elementos do Swiper.
+*/
 .clients .swiper-slide img {
   opacity: 0.5;
   transition: 0.3s;
@@ -649,6 +798,10 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
+/*
+  .services .service-item
+  - Card individual de serviço. Exemplo de seletor descendente (classe dentro de classe).
+*/
 .services .service-item {
   background-color: var(--surface-color);
   padding: 40px;
@@ -671,6 +824,9 @@ section,
   position: relative;
 }
 
+/*
+  Pseudo-elemento :before dentro de .services .service-item .icon
+*/
 .services .service-item .icon:before {
   position: absolute;
   content: "";
@@ -770,6 +926,10 @@ section,
   margin: 0 1px;
 }
 
+/*
+  Pseudo-elementos :before e :after em .quote-icon-left, .quote-icon-right
+  - Aqui é usado transform para girar o ícone de citação.
+*/
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
   color: color-mix(in srgb, var(--accent-color), transparent 50%);
@@ -863,6 +1023,10 @@ section,
   margin-bottom: 20px;
 }
 
+/*
+  .resume .resume-item
+  - Exemplo de classe com border-left e pseudo-elemento ::before.
+*/
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
@@ -899,6 +1063,10 @@ section,
   padding-bottom: 0;
 }
 
+/*
+  Pseudo-elemento ::before em .resume-item
+  - Cria o círculo que marca o ponto na linha vertical.
+*/
 .resume .resume-item::before {
   content: "";
   position: absolute;
@@ -944,6 +1112,10 @@ section,
   font-size: 18px;
 }
 
+/*
+  .pricing ul 
+  - Lista de características do plano.
+*/
 .pricing ul {
   padding: 20px 0;
   list-style: none;
@@ -1000,6 +1172,10 @@ section,
   z-index: 10;
 }
 
+/*
+  .pricing .featured .pricing-item
+  - Aplicação de destaque (featured) no plano principal.
+*/
 .pricing .featured .pricing-item {
   background: var(--accent-color);
 }
@@ -1143,6 +1319,10 @@ section,
   transition: 0.3s;
 }
 
+/*
+  .service-details .services-list a.active
+  - Classe .active adicionada dinamicamente. 
+*/
 .service-details .services-list a.active {
   color: var(--heading-color);
   font-weight: 700;
@@ -1193,12 +1373,17 @@ section,
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
-  /* Add your styles here */
+  /* Exemplo de classe vazia. 
+     Poderia ser utilizada para futuros estilos ou configurações adicionais. */
 }
 
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
+/*
+  .contact 
+  - Exemplo de seletor de classe para seção de contato, usando background-image.
+*/
 .contact {
   background-image: url("../img/contact-bg.png");
   background-position: left center;
@@ -1223,6 +1408,10 @@ section,
   right: 0;
 }
 
+/*
+  .contact .info-item + .info-item 
+  - Seleciona .info-item que segue outro .info-item.
+*/
 .contact .info-item + .info-item {
   margin-top: 40px;
 }
@@ -1258,6 +1447,10 @@ section,
   height: 100%;
 }
 
+/* 
+  Exemplo de seletores de atributo (input[type="text"], input[type="email"]):
+  - Especificidade maior que apenas "input".
+*/
 .contact .php-email-form input[type="text"],
 .contact .php-email-form input[type="email"],
 .contact .php-email-form textarea {
@@ -1286,6 +1479,10 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
+/*
+  .contact .php-email-form button[type="submit"] 
+  - Botão de envio do formulário de contato.
+*/
 .contact .php-email-form button[type="submit"] {
   color: var(--contrast-color);
   background: var(--accent-color);

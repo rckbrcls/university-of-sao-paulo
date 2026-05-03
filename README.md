@@ -7,25 +7,24 @@ Archive of coursework, assignments, exercises, and study projects from Universit
 
 ## Summary
 
-- [What it is](#what-it-is)
-- [Goals](#goals)
-- [Course areas](#course-areas)
-- [Project map](#project-map)
-- [Current state](#current-state)
-- [Working notes](#working-notes)
+- Archived academic repository for University of Sao Paulo coursework, assignments, exercises, and small class projects.
+- Contains multiple independent course folders rather than one runnable application.
+- Main materials include C/C++ assignments, data structures, file organization, graph algorithms, operating systems, HCI, web/game-development projects, assembly, and reports.
+- Current status: archived study reference; some folders contain class-specific Makefiles, PDFs, older setup steps, or legacy dependencies.
+- Technical value: preserves academic progression across low-level programming, algorithms, databases, web, HCI, and systems classes.
 
-## What it is
+## Overview
 
 This repository is a personal academic archive. It groups work from multiple university classes, including C programming assignments, data structures, file organization, graphs, operating systems, web, HCI, functional programming, and other course material.
 
-## Goals
+## Motivation
 
 - Keep university work organized by subject.
 - Preserve assignments, exercises, and small course projects as study references.
 - Make it easier to revisit implementations and reports by class.
 - Separate academic coursework from active product repositories.
 
-## Course areas
+## Features
 
 - Algorithms and data structures.
 - Introduction to computer science I and II.
@@ -38,7 +37,7 @@ This repository is a personal academic archive. It groups work from multiple uni
 - Practice in computer organization.
 - Web and game-development coursework.
 
-## Project map
+## Project Structure
 
 ```text
 university-of-sao-paulo/
@@ -58,11 +57,11 @@ university-of-sao-paulo/
 └── web/
 ```
 
-## Current state
+## Current Status
 
 The repository is an archive rather than a single runnable app. Some folders may contain class-specific build files, PDFs, or older implementation styles.
 
-## Working notes
+## Known Limitations
 
 - Read each course directory independently.
 - Preserve original assignment context when updating docs.

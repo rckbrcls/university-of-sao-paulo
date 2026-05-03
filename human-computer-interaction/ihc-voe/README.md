@@ -1,5 +1,8 @@
 # Voe
 
+> **Status:** Archived
+> This project is kept as academic coursework reference and may need setup verification before reuse.
+
 Verifique se você tem baixado na sua máquina o Yarn e o Node (+ v.14)
 
 Clone o repositório

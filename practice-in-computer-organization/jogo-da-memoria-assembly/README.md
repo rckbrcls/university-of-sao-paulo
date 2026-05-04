@@ -1,21 +1,41 @@
-# Jogo da memória
+# Assembly Memory Game
 
-> **Status:** Archived
-> This project is kept as academic coursework reference.
+> Status: archived academic coursework.
 
-## Summary
+This project contains a memory game implemented in assembly for a Practice in Computer Organization course evaluation. It also includes simulator support and memory initialization files used by the assignment.
 
-- Archived assembly memory-game project for the Practice in Computer Organization course.
-- Solves a course evaluation task by implementing a memory game in assembly with a simulator template.
-- Main stack: assembly and C simulator support.
-- Current status: archived coursework reference with presentation video link.
-- Technical value: preserves a low-level programming assignment and team/authorship context.
+## Scope
 
-Jogo da memória em Assembly desenvolvido para avaliação da matéria de prática em organização de computadores.
+- Project type: standalone low-level programming assignment.
+- Main stack: assembly, MIF files, and a C simulator template.
+- Runtime: course-specific simulator workflow.
+- Current status: archived study reference.
 
-**Desenvolvido por:**
+## Files
 
-  - Erick Barcelos | **NUSP:** 11345562
-  - Vinícius Santos Monteiro | **NUSP:** 11932463
+| Path | Purpose |
+| --- | --- |
+| `jogo_memoria.asm` | Main assembly source for the memory game. |
+| `jogo_memoria.mif` | Memory initialization file associated with the game. |
+| `charmap.mif` | Character map memory initialization file. |
+| `simple_simulator_template.c` | C simulator template/support file. |
 
-**Clique [aqui](https://drive.google.com/file/d/15bMJjqaheodDmR-pVvpLD-7ic2EpkYZ2/view?usp=sharing) para acessar o vídeo da apresentação.**
+## Usage Notes
+
+The current codebase does not include a complete documented simulator setup. To reuse the project, identify the simulator expected by the course and load the `.asm` and `.mif` files according to that environment.
+
+## Authors
+
+- Erick Barcelos, NUSP 11345562.
+- Vinicius Santos Monteiro, NUSP 11932463.
+
+## Presentation
+
+The original project README linked to a presentation video:
+
+https://drive.google.com/file/d/15bMJjqaheodDmR-pVvpLD-7ic2EpkYZ2/view?usp=sharing
+
+## Limitations
+
+- No automated tests were identified.
+- The simulator/runtime requirements are not fully documented in the current codebase.
